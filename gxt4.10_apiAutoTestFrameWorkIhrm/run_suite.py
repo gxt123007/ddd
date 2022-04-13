@@ -13,6 +13,9 @@ from scripts.test_ihrm_login_params import TestIhrmLoginParams
 
 from htmltestreport import HTMLTestReport
 
+import os
+base_path=os.path.dirname(__file__)
+print(base_path)
 # 1. 创建测试套件实例。 suite
 suite = unittest.TestSuite()
 
@@ -23,7 +26,7 @@ suite.addTest(unittest.makeSuite(TestEmpAddParams))
 
 # 3. 创建 HTMLTestReport 类实例。 runner
 # runner = HTMLTestReport(BASE_DIR + "/report/ihrm.html")  # 绝对路径
-runner = HTMLTestReport("./report/ihrm.html",description="这里写的是描述信息",title="这里写的是测试报告的标题")   # 相对路径
+runner = HTMLTestReport(base_path+"/report/ihrm.html",description="这里写的是描述信息",title="这里写的是测试报告的标题")   # 相对路径
 
 # 4. runner 调用 run(), 传入 suite
 runner.run(suite)
